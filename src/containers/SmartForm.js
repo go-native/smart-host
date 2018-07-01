@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Form from '../components/form/Form';
-import { calcOptimization } from '../actions';
+import { optimizeGuests } from '../actions';
 
 const mapStateToProps = (state) => {
   return { ...state }
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChange: (formData) => {
-      dispatch(calcOptimization(formData))
+      dispatch(optimizeGuests(formData))
     }
   }
 }

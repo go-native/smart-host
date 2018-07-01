@@ -1,6 +1,6 @@
-export const CALC_OPTIMIZATION = 'CALC_OPTIMIZATION';
+export const OPTIMIZE_GUESTS = 'OPTIMIZE_GUESTS';
 
-export const calcOptimization = payload => ({
-  type: CALC_OPTIMIZATION,
+export const optimizeGuests = payload => ({
+  type: OPTIMIZE_GUESTS,
   payload
 })

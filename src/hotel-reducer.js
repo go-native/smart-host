@@ -1,4 +1,4 @@
-import { CALC_OPTIMIZATION } from "./actions";
+import { OPTIMIZE_GUESTS } from "./actions";
 import dummyData from './smarthost_hotel_guests.json';
 
 const USER_LIST = dummyData.sort((a, b) => a < b);
@@ -12,16 +12,16 @@ const initialState = {
 
 export const hotelReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CALC_OPTIMIZATION:
+    case OPTIMIZE_GUESTS:
       return {
-        ...calOptimization(action.payload.premium, action.payload.economy)
+        ...optimizeGuests(action.payload.premium, action.payload.economy)
       }
     default:
       return state
   }
 }
 
-function calOptimization(premiumRooms, economyRooms) {
+function optimizeGuests(premiumRooms, economyRooms) {
   let biggerThan100 = USER_LIST.filter(d => d >= 100);
   let smallerThan100 = USER_LIST.filter(d => d < 100);
   let occupiedPremium = 0, totalPriceForPremium = 0;
@@ -29,7 +29,7 @@ function calOptimization(premiumRooms, economyRooms) {
   for (let i = 0; i < biggerThan100.length; i++) {
     let currentNumber = i + 1;
     if (currentNumber <= premiumRooms) {
-      occupiedPremium = currentNumber;
+      occupiedPremium++;
       totalPriceForPremium += biggerThan100[i];
     } else {
       break;
@@ -43,7 +43,7 @@ function calOptimization(premiumRooms, economyRooms) {
       totalPriceForPremium += smallerThan100[i];
     }
     else if (currentNumber <= economyRooms) {
-      occupiedEconomy = currentNumber;
+      occupiedEconomy++;
       totalPriceForEconomy += smallerThan100[i];
     } else {
       break;
