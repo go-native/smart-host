@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
-import SmartForm from './components/SmartForm';
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import { store } from './store'
+import SmartForm from './containers/SmartForm';
 
 class App extends Component {
   change(data) {
@@ -7,9 +9,11 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <SmartForm onChange={this.change}/>
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <SmartForm />
+        </div>
+      </Provider>
     );
   }
 }
