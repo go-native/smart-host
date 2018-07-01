@@ -1,0 +1,13 @@
+@media only screen and (max-width: 576px) {
+  .smart-form {
+    width: 100% !important;
+  }
+}
+.smart-form {
+  padding: 1rem;
+  width: 576px;
+  margin: 50px auto;
+  box-shadow: #a5a5a5 0px 0px 7px;
+  background: #fff;
+  border-radius: 5px;
+}

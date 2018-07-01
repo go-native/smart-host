@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
+import SmartForm from './components/SmartForm';
 
 class App extends Component {
+  change(data) {
+    console.log(data)
+  }
   render() {
     return (
       <div className="App">
-       
+        <SmartForm onChange={this.change}/>
       </div>
     );
   }
